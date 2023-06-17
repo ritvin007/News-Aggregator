@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.team-member {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-image:cover;
+}
+
+.team-member-info {
+    flex-grow: 1;
+}
+
+.team-member-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.team-member-position {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.team-member-description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.desc-txt {
+    font-size: 16px;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color:#384156;
+}
+a:visited {
+    color: #384156;
+}

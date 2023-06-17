@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='inactive.css')}}"/>
+
+    <title>Inactive Page</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<body>
+  <section>
+    <div class="text-box">
+        <div class="mail-image">
+          <image src="{{url_for('static',filename='image/mail.jpg')}}"/>
+        </div>
+        <div class="intext-box">
+          <h2>Email Confirmation</h2><br/>
+          <p>We have sent an email to confirm the validity of your account.<br/>After recieving the email,
+          Please follow the link provided<br/> to complete your registration.</p><br/>
+          <p>If you didn't get any mail? <a href="{{url_for('resend')}}">Resend the confirmation mail.</a></p>
+        </div>
+    </div>
+    <a href="{{url_for('logout')}}" class="btnpop">Logout</a>
+  </section>
+</body>
+</html>
+  

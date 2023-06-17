@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="{{url_for('static',filename='news.css')}}"/>
+</head>
+<body>
+
+    <div class="top-nav">
+        <div class="logo"><img src="{{url_for('static',filename='image/logo.png')}}" alt="logo"/></div>
+        <div class="right-bar">
+            <div><img class="dp" src="{{url_for('static',filename='image/dp.png')}}"/></div>
+            <div><p class="username">{{session.get('user')}}</p></div>
+            <div><a href="{{url_for('logout')}}"><button class="logout-btn">LOGOUT</button></a></div>
+        </div>
+    </div>
+    <div class="bottom-nav">
+        <nav>
+            <a href="{{url_for('home')}}">HOME</a>
+            <a href="{{url_for('newshome',content='entertainment')}}">ENTERTAINMENT</a>
+            <a href="{{url_for('newshome',content='technology')}}">TECHNOLOGY</a>
+            <a href="{{url_for('newshome',content='science')}}">SCIENCE</a>
+            <a href="{{url_for('newshome',content='health')}}">HEALTH</a>
+            <a href="{{url_for('newshome',content='sports')}}">SPORTS</a>
+            <div class="animation start-home"></div>
+        </nav>
+    </div>
+    <section>
+        <div id="main">
+            <hr class="class-1"/>
+            <div class = "head"><marquee>TODAY'S TOP HEADLINES</marquee></div><hr class="class-1"/></br>
+            <div class="wrapper">
+                {% for title,desc,img,p_date,url in contents %}
+                    <div class="outer-box">
+                        <div>
+                            <a href="{{url}}" style="text-decoration:none;"><h2 class="title-txt">{{title}}</h2></a>
+                        </div>
+                        <div>
+                            <a href="{{url}}" style="text-decoration:none;"><img src="{{img}}"class="image-box"></a>
+                        </div></br>
+                
+                        <div>
+                            <a href="{{url}}"style="text-decoration:none;"><p class="desc-txt">{{desc}}</p></a>
+                        </div></br>
+                        <div class="date">
+                            <p>Publish Date:-{{p_date}}</p>
+                        </div>
+                    </div> 
+                {% endfor %} 
+            </div></br></br></br>
+                <hr class="class-1"/>
+                <div class = "head"><marquee>TODAY'S NEWS</marquee></div><hr class="class-1"/></br>
+            <div class="wrapper">
+                {% for title,desc,img,p_date,url in all %}
+                    <div class="outer-box">
+                        <div>
+                            <a href="{{url}}"style="text-decoration:none;"><h2 class="title-txt">{{title}}</h2></a>
+                        </div>
+                        <div>
+                            <a href="{{url}}"style="text-decoration:none;"><img src="{{img}}" class="image-box"></a>
+                        </div></br>
+                        <div>
+                            <a href="{{url}}"style="text-decoration:none;"><p class="desc-txt">{{desc}}</p></a>
+                        </div></br>
+                        <div class="date">
+                            <p>Publish Date:-{{p_date}}</p>
+                        </div>
+                    </div> 
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>
